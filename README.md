@@ -38,7 +38,7 @@ in `requirements.txt`.
 Make sure the current directory is in your path:
 
 ```sh
-export PYTHONPATH=.`
+export PYTHONPATH=.
 ```
 
 You can run automated tests with `pytest`:
