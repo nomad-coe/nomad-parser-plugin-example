@@ -1,4 +1,5 @@
 import numpy as np
+from nomad.datamodel import EntryMetadata
 from nomad.metainfo import MSection, Quantity
 
 
@@ -8,10 +9,12 @@ class ExampleSection(MSection):
 
 class ExampleParser:
     def parse(self, mainfile, archive, logger):
+        logger.info('parsing started.')
+
         with open(mainfile, 'rt') as f:
             data = f.readlines()
 
-        archive.metadata.external_id = data[0][1:]
+        archive.metadata = EntryMetadata(external_id=data[0][1:])
         archive.data = ExampleSection()
         archive.data.pattern = [
             [float(number) for number in line.split(' ')]
