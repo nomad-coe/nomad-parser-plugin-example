@@ -25,7 +25,8 @@ You need at least Python 3.9.
 ```sh
 python3 -m venv .pyenv
 source .pyenv/bin/activate
-pip install -r requirements.txt --index-url https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple
+pip install --upgrade pip
+pip install '.[dev]' --index-url https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple
 ```
 
 **Note!**
@@ -45,6 +46,20 @@ You can run automated tests with `pytest`:
 
 ```sh
 pytest -svx tests
+```
+
+### Run linting
+
+```sh
+ruff check .
+```
+
+### Run auto-formatting
+
+This is entirely optional. To add this as a check in github actions pipeline, uncomment the `ruff-formatting` step in `./github/workflows/actions.yaml`.
+
+```sh
+ruff format .
 ```
 
 You can parse an example archive that uses the schema with `nomad`
