@@ -16,7 +16,7 @@ homepage = "https://github.com/nomad-coe/nomad-parser-example-plugin"
 
 [project.optional-dependencies]
 dev = [
-    'ruff>=0.2.2',
+    'ruff>=0.1.8',
     'mypy==1.0.1',
     'pytest',
     'pytest-timeout==1.4.2',
